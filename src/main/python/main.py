@@ -2,17 +2,17 @@
 import ssl
 import certifi
 import os
+import signal
 
 if ssl.get_default_verify_paths().cafile is None:
     os.environ['SSL_CERT_FILE'] = certifi.where()
 
 import traceback
+from functools import cached_property
+from importlib import metadata
 
-from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtCore import pyqtSignal
-
-from fbs_runtime.application_context import cached_property
-from fbs_runtime.application_context.PyQt5 import ApplicationContext
+from PyQt6 import QtWidgets, QtCore
+from PyQt6.QtCore import pyqtSignal
 
 import sys
 
@@ -27,7 +27,7 @@ def show_exception_box(log_msg):
     if QtWidgets.QApplication.instance() is not None:
         errorbox = QtWidgets.QMessageBox()
         errorbox.setText(log_msg)
-        errorbox.exec_()
+        errorbox.exec()
 
 
 class UncaughtHook(QtCore.QObject):
@@ -55,19 +55,26 @@ class UncaughtHook(QtCore.QObject):
             self._exception_caught.emit(log_msg)
         sys._excepthook(exc_type, exc_value, exc_traceback)
 
-class VialApplicationContext(ApplicationContext):
+class VialApplicationContext:
+    def __init__(self):
+        # Many Qt classes require a QApplication to have been instantiated.
+        # Do this here, before everything else, to achieve this:
+        self.app
+        # install SIGINT handler
+        signal.signal(signal.SIGINT, lambda *_: self.app.exit(130))
+
     @cached_property
     def app(self):
         # Override the app definition in order to set WM_CLASS.
         result = QtWidgets.QApplication(sys.argv)
-        result.setApplicationName(self.build_settings["app_name"])
+        result.setApplicationName("Vial")
         result.setOrganizationDomain("vial.today")
 
         #TODO: Qt sets applicationVersion on non-Linux platforms if the exe/pkg metadata is correctly configured.
         # https://doc.qt.io/qt-5/qcoreapplication.html#applicationVersion-prop
         # Verify it is, and only set manually on Linux.
         #if sys.platform.startswith("linux"):
-        result.setApplicationVersion(self.build_settings["version"])
+        result.setApplicationVersion(metadata.version("vial-gui"))
         return result
 
 if __name__ == '__main__':
@@ -81,5 +88,5 @@ if __name__ == '__main__':
         qt_exception_hook = UncaughtHook()
         window = MainWindow(appctxt)
         window.show()
-        exit_code = appctxt.app.exec_()      # 2. Invoke appctxt.app.exec_()
+        exit_code = appctxt.app.exec()      # 2. Invoke appctxt.app.exec_()
         sys.exit(exit_code)

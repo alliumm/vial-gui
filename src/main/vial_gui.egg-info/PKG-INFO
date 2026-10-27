@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: vial-gui
+Version: 0.7.5
+License-File: COPYING
+Requires-Dist: altgraph==0.17.5
+Requires-Dist: future==0.18.2
+Requires-Dist: hidapi==0.15.0
+Requires-Dist: keyboard==0.13.5
+Requires-Dist: legacy-cgi>=2.6.4
+Requires-Dist: macholib==1.14
+Requires-Dist: pefile==2019.4.18
+Requires-Dist: PyInstaller==3.4
+Requires-Dist: PyQt6==6.11.0
+Requires-Dist: simpleeval==0.9.11
+Requires-Dist: sip==5.0.0
+Requires-Dist: pywin32==303; sys_platform == "win32"
+Requires-Dist: certifi
+Dynamic: license-file

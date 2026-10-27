@@ -1,0 +1,15 @@
+altgraph==0.17.5
+future==0.18.2
+hidapi==0.15.0
+keyboard==0.13.5
+legacy-cgi>=2.6.4
+macholib==1.14
+pefile==2019.4.18
+PyInstaller==3.4
+PyQt6==6.11.0
+simpleeval==0.9.11
+sip==5.0.0
+certifi
+
+[:sys_platform == "win32"]
+pywin32==303

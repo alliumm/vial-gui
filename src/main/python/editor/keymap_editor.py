@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 import json
 
-from PyQt5.QtWidgets import QHBoxLayout, QLabel, QVBoxLayout, QMessageBox, QWidget
-from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt6.QtWidgets import QHBoxLayout, QLabel, QVBoxLayout, QMessageBox, QWidget
+from PyQt6.QtCore import Qt, pyqtSignal
 
 from any_keycode_dialog import AnyKeycodeDialog
 from editor.basic_editor import BasicEditor
@@ -48,7 +48,7 @@ class KeymapEditor(BasicEditor):
         layout = QVBoxLayout()
         layout.addLayout(layout_labels_container)
         layout.addWidget(self.container)
-        layout.setAlignment(self.container, Qt.AlignHCenter)
+        layout.setAlignment(self.container, Qt.AlignmentFlag.AlignHCenter)
         w = ClickableWidget()
         w.setLayout(layout)
         w.clicked.connect(self.on_empty_space_clicked)

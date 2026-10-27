@@ -1,8 +1,8 @@
 from collections import defaultdict
 
-from PyQt5.QtGui import QPainter, QColor, QPainterPath, QTransform, QBrush, QPolygonF, QPalette
-from PyQt5.QtWidgets import QWidget, QToolTip, QApplication
-from PyQt5.QtCore import Qt, QSize, QRect, QPointF, pyqtSignal, QEvent, QRectF
+from PyQt6.QtGui import QPainter, QColor, QPainterPath, QTransform, QBrush, QPolygonF, QPalette
+from PyQt6.QtWidgets import QWidget, QToolTip, QApplication
+from PyQt6.QtCore import Qt, QSize, QRect, QPointF, pyqtSignal, QEvent, QRectF
 
 from constants import KEY_SIZE_RATIO, KEY_SPACING_RATIO, KEYBOARD_WIDGET_PADDING, \
     KEYBOARD_WIDGET_MASK_HEIGHT, KEY_ROUNDNESS, SHADOW_SIDE_PADDING, SHADOW_TOP_PADDING, SHADOW_BOTTOM_PADDING, \
@@ -448,7 +448,7 @@ class KeyboardWidget(QWidget):
                 # draw the outer legend
                 qp.setFont(mask_font)
                 qp.setPen(key.color if key.color else regular_pen)
-                qp.drawText(key.nonmask_rect, Qt.AlignCenter, key.text)
+                qp.drawText(key.nonmask_rect, Qt.AlignmentFlag.AlignCenter, key.text)
 
                 # draw the inner highlight rect
                 qp.setPen(active_pen if self.active_key == key and self.active_mask else Qt.NoPen)
@@ -457,11 +457,11 @@ class KeyboardWidget(QWidget):
 
                 # draw the inner legend
                 qp.setPen(key.mask_color if key.mask_color else regular_pen)
-                qp.drawText(key.mask_rect, Qt.AlignCenter, key.mask_text)
+                qp.drawText(key.mask_rect, Qt.AlignmentFlag.AlignCenter, key.mask_text)
             else:
                 # draw the legend
                 qp.setPen(key.color if key.color else regular_pen)
-                qp.drawText(key.text_rect, Qt.AlignCenter, key.text)
+                qp.drawText(key.text_rect, Qt.AlignmentFlag.AlignCenter, key.text)
 
             # draw the extra shape (encoder arrow)
             qp.setPen(extra_pen)
@@ -522,15 +522,15 @@ class KeyboardWidget(QWidget):
         if not self.enabled:
             super().event(ev)
 
-        if ev.type() == QEvent.ToolTip:
+        if ev.type() == QEvent.Type.ToolTip:
             key = self.hit_test(ev.pos())[0]
             if key is not None:
                 QToolTip.showText(ev.globalPos(), key.tooltip)
             else:
                 QToolTip.hideText()
-        elif ev.type() == QEvent.LayoutRequest:
+        elif ev.type() == QEvent.Type.LayoutRequest:
             self.update_layout()
-        elif ev.type() == QEvent.MouseButtonDblClick and self.active_key:
+        elif ev.type() == QEvent.Type.MouseButtonDblClick and self.active_key:
             self.anykey.emit()
         return super().event(ev)
 

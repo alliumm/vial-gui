@@ -2,10 +2,9 @@
 import sys
 import os
 
-from PyQt5 import QtCore
-from PyQt5.QtCore import pyqtSignal, QProcess
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication
-from fbs_runtime.application_context import is_frozen
+from PyQt6 import QtCore
+from PyQt6.QtCore import pyqtSignal, QProcess, Qt
+from PyQt6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication
 
 from keycodes.keycodes import Keycode
 from macro.macro_key import KeyUp, KeyDown
@@ -23,7 +22,7 @@ class LinuxRecorder(QWidget):
         self.process = QProcess()
         self.process.readyReadStandardOutput.connect(self.on_output)
 
-        self.setWindowFlags(self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint | QtCore.Qt.X11BypassWindowManagerHint)
+        self.setWindowFlags(self.windowFlags() | Qt.WindowType.WindowStaysOnTopHint | Qt.WindowType.X11BypassWindowManagerHint)
 
         layout = QVBoxLayout()
         btn = QPushButton(tr("MacroRecorder", "Stop recording"))
@@ -39,12 +38,7 @@ class LinuxRecorder(QWidget):
         self.move(round(center.x() - self.width() * 0.5), 0)
 
         args = [sys.executable]
-        if os.getenv("APPIMAGE"):
-            args = [os.getenv("APPIMAGE")]
-        elif is_frozen():
-            args += sys.argv[1:]
-        else:
-            args += sys.argv
+        args += sys.argv
         args += ["--linux-recorder"]
 
         self.process.start("pkexec", args, QProcess.Unbuffered | QProcess.ReadWrite)

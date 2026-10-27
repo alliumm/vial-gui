@@ -7,7 +7,6 @@ name = "vial-gui"
 version = "0.7.5"
 dependencies = [
     "altgraph==0.17.5",
-    "certifi",
     "hid==1.0.9",
     "keyboard==0.13.5",
     "macholib==1.16.4",

@@ -1,12 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-import ssl
-import certifi
-import os
 import signal
-
-if ssl.get_default_verify_paths().cafile is None:
-    os.environ['SSL_CERT_FILE'] = certifi.where()
-
 import traceback
 from functools import cached_property
 from importlib import metadata

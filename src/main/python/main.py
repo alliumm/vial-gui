@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-import signal
 import traceback
 from functools import cached_property
 from importlib import metadata
@@ -12,6 +11,7 @@ import sys
 from vial.main_window import MainWindow
 
 
+from vial.fbs_signal_handler import SignalWakeupHandler
 # http://timlehr.com/python-exception-hooks-with-qt-message-box/
 from vial.util import init_logger
 
@@ -52,9 +52,9 @@ class VialApplicationContext:
     def __init__(self):
         # Many Qt classes require a QApplication to have been instantiated.
         # Do this here, before everything else, to achieve this:
-        self.app
+        app = self.app
         # install SIGINT handler
-        signal.signal(signal.SIGINT, lambda *_: self.app.exit(130))
+        SignalWakeupHandler(app).install()
 
     @cached_property
     def app(self):

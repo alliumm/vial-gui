@@ -1,7 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 import time
 
-from hidproxy import hid
+import hid
+from hid import HIDException
 from protocol.keyboard_comm import Keyboard
 from protocol.dummy_keyboard import DummyKeyboard
 from util import MSG_LEN, pad_for_vibl
@@ -16,12 +17,11 @@ class VialDevice:
         self.via_stack = False
 
     def open(self, override_json=None):
-        self.dev = hid.device()
         for x in range(10):
             try:
-                self.dev.open_path(self.desc["path"])
+                self.dev = hid.Device(path=self.desc["path"])
                 return
-            except OSError:
+            except HIDException:
                 time.sleep(1)
         raise RuntimeError("unable to open the device")
 

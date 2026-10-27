@@ -72,9 +72,9 @@ class VialApplicationContext:
         result.setApplicationVersion(metadata.version("vial-gui"))
         return result
 
-if __name__ == '__main__':
+def main():
     if len(sys.argv) == 2 and sys.argv[1] == "--linux-recorder":
-        from linux_keystroke_recorder import linux_keystroke_recorder
+        from vial.linux_keystroke_recorder import linux_keystroke_recorder
 
         linux_keystroke_recorder()
     else:
@@ -83,5 +83,4 @@ if __name__ == '__main__':
         qt_exception_hook = UncaughtHook()
         window = MainWindow(appctxt)
         window.show()
-        exit_code = appctxt.app.exec()      # 2. Invoke appctxt.app.exec_()
-        sys.exit(exit_code)
+        return appctxt.app.exec()

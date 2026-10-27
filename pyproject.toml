@@ -24,7 +24,7 @@ dev = [
 ]
 
 [project.gui-scripts]
-vial = "vial:main"
+vial = "vial.main:main"
 
 [tool.setuptools.package-dir]
 vial = "src/main/python"

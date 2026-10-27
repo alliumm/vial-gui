@@ -479,7 +479,7 @@ class KeyboardWidget(QWidget):
         """ Returns key, hit_masked_part """
 
         for key in self.widgets:
-            if key.masked and key.mask_polygon.containsPoint(pos/self.scale, Qt.FillRule.OddEvenFill):
+            if key.masked and key.mask_polygon.containsPoint(QPointF(pos/self.scale), Qt.FillRule.OddEvenFill):
                 return key, True
             if key.polygon.containsPoint(QPointF(pos/self.scale), Qt.FillRule.OddEvenFill):
                 return key, False

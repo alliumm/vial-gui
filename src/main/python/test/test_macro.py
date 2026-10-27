@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 import unittest
 
-from protocol.dummy_keyboard import DummyKeyboard
-from keycodes.keycodes import Keycode, recreate_keyboard_keycodes
-from macro.macro_action import ActionTap, ActionDown, ActionText, ActionDelay, ActionUp
-from macro.macro_key import KeyDown, KeyTap, KeyUp, KeyString
-from macro.macro_optimizer import remove_repeats, replace_with_tap, replace_with_string
+from vial.protocol.dummy_keyboard import DummyKeyboard
+from vial.keycodes.keycodes import Keycode, recreate_keyboard_keycodes
+from vial.macro.macro_action import ActionTap, ActionDown, ActionText, ActionDelay, ActionUp
+from vial.macro.macro_key import KeyDown, KeyTap, KeyUp, KeyString
+from vial.macro.macro_optimizer import remove_repeats, replace_with_tap, replace_with_string
 
 KC_A = Keycode.find_by_qmk_id("KC_A")
 KC_B = Keycode.find_by_qmk_id("KC_B")

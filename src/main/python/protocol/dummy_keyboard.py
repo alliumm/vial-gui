@@ -1,4 +1,4 @@
-from protocol.keyboard_comm import Keyboard
+from vial.protocol.keyboard_comm import Keyboard
 
 
 class DummyKeyboard(Keyboard):

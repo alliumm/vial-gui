@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 import struct
 
-from keycodes.keycodes import Keycode
-from protocol.constants import VIAL_PROTOCOL_ADVANCED_MACROS
+from vial.keycodes.keycodes import Keycode
+from vial.protocol.constants import VIAL_PROTOCOL_ADVANCED_MACROS
 
 SS_QMK_PREFIX = 1
 

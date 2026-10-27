@@ -12,10 +12,10 @@ from PyQt6.QtGui import QFontDatabase
 from PyQt6.QtWidgets import QHBoxLayout, QLineEdit, QToolButton, QPlainTextEdit, QProgressBar, QFileDialog, QDialog, \
     QCheckBox
 
-from editor.basic_editor import BasicEditor
-from unlocker import Unlocker
-from util import tr, chunks, find_vial_devices, pad_for_vibl
-from vial_device import VialBootloader, VialKeyboard
+from vial.editor.basic_editor import BasicEditor
+from vial.unlocker import Unlocker
+from vial.util import tr, chunks, find_vial_devices, pad_for_vibl
+from vial.vial_device import VialBootloader, VialKeyboard
 
 
 def send_retries(dev, data, retries=200):

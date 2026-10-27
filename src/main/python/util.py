@@ -12,8 +12,8 @@ from PyQt6.QtWidgets import QApplication, QWidget, QScrollArea, QFrame
 
 import hid
 from hid import HIDException
-from keycodes.keycodes import Keycode
-from keymaps import KEYMAPS
+from vial.keycodes.keycodes import Keycode
+from vial.keymaps import KEYMAPS
 
 tr = QCoreApplication.translate
 
@@ -93,7 +93,7 @@ def is_rawhid(desc, quiet):
 
 
 def find_vial_devices(via_stack_json, sideload_vid=None, sideload_pid=None, quiet=False):
-    from vial_device import VialBootloader, VialKeyboard, VialDummyKeyboard
+    from vial.vial_device import VialBootloader, VialKeyboard, VialDummyKeyboard
 
     filtered = []
     for dev in hid.enumerate():

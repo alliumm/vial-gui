@@ -4,11 +4,11 @@ import json
 from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtWidgets import QGridLayout, QWidget, QSizePolicy
 
-from constants import KEYCODE_BTN_RATIO
-from keycodes.keycodes import Keycode
-from util import KeycodeDisplay
-from widgets.square_button import SquareButton
-from kle_serial import Serial as KleSerial
+from vial.constants import KEYCODE_BTN_RATIO
+from vial.keycodes.keycodes import Keycode
+from vial.util import KeycodeDisplay
+from vial.widgets.square_button import SquareButton
+from vial.kle_serial import Serial as KleSerial
 
 
 class DisplayKeyboard(QWidget):

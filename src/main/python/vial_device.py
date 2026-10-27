@@ -3,9 +3,9 @@ import time
 
 import hid
 from hid import HIDException
-from protocol.keyboard_comm import Keyboard
-from protocol.dummy_keyboard import DummyKeyboard
-from util import MSG_LEN, pad_for_vibl
+from vial.protocol.keyboard_comm import Keyboard
+from vial.protocol.dummy_keyboard import DummyKeyboard
+from vial.util import MSG_LEN, pad_for_vibl
 
 
 class VialDevice:

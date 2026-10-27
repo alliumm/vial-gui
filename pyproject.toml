@@ -21,10 +21,10 @@ dependencies = [
 ]
 
 [project.gui-scripts]
-vial = "vial.python:main"
+vial = "vial:main"
 
 [tool.setuptools.package-dir]
-vial = "src/main"
+vial = "src/main/python"
 
 [tool.setuptools.package-data]
-"*" = ["qmk_settings.json", "*.ico"]
+vial = ["resources/qmk_settings.json"]

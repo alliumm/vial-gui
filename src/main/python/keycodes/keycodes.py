@@ -4,8 +4,8 @@
 
 import sys
 
-from keycodes.keycodes_v5 import keycodes_v5
-from keycodes.keycodes_v6 import keycodes_v6
+from vial.keycodes.keycodes_v5 import keycodes_v5
+from vial.keycodes.keycodes_v6 import keycodes_v6
 
 
 class Keycode:
@@ -127,7 +127,7 @@ class Keycode:
     def deserialize(cls, val, reraise=False):
         """ Converts string keycode to integer """
 
-        from any_keycode import AnyKeycode
+        from vial.any_keycode import AnyKeycode
 
         if isinstance(val, int):
             return val

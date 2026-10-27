@@ -16,11 +16,11 @@ from PyQt6.QtCore import pyqtSignal
 
 import sys
 
-from main_window import MainWindow
+from vial.main_window import MainWindow
 
 
 # http://timlehr.com/python-exception-hooks-with-qt-message-box/
-from util import init_logger
+from vial.util import init_logger
 
 
 def show_exception_box(log_msg):

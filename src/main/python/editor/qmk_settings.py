@@ -7,10 +7,10 @@ from PyQt6.QtCore import pyqtSignal, QObject, Qt
 from PyQt6.QtWidgets import QVBoxLayout, QCheckBox, QGridLayout, QLabel, QWidget, QSizePolicy, QTabWidget, QSpinBox, \
     QHBoxLayout, QPushButton, QMessageBox
 
-from editor.basic_editor import BasicEditor
-from protocol.constants import VIAL_PROTOCOL_QMK_SETTINGS
-from util import tr
-from vial_device import VialKeyboard
+from vial.editor.basic_editor import BasicEditor
+from vial.protocol.constants import VIAL_PROTOCOL_QMK_SETTINGS
+from vial.util import tr
+from vial.vial_device import VialKeyboard
 
 
 class GenericOption(QObject):
@@ -235,7 +235,7 @@ class QmkSettings(BasicEditor):
     @classmethod
     def initialize(cls, appctx):
         cls.qsid_fields = defaultdict(list)
-        with resources.open_text("vial", "resources/base/qmk_settings.json") as inf:
+        with resources.open_text("vial", "resources/qmk_settings.json") as inf:
             cls.settings_defs = json.load(inf)
         for tab in cls.settings_defs["tabs"]:
             for field in tab["fields"]:

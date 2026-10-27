@@ -4,10 +4,10 @@ from PyQt6.QtGui import QColor
 from PyQt6.QtWidgets import QWidget, QPushButton, QHBoxLayout, QSizePolicy, QGridLayout, QLabel, QSlider, \
     QComboBox, QColorDialog, QCheckBox
 
-from editor.basic_editor import BasicEditor
-from widgets.clickable_label import ClickableLabel
-from util import tr
-from vial_device import VialKeyboard
+from vial.editor.basic_editor import BasicEditor
+from vial.widgets.clickable_label import ClickableLabel
+from vial.util import tr
+from vial.vial_device import VialKeyboard
 
 
 class QmkRgblightEffect:

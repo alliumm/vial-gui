@@ -6,8 +6,8 @@ from PyQt6.QtCore import Qt, QTimer, QCoreApplication, QByteArray, QBuffer, QIOD
 from PyQt6.QtGui import QPalette
 from PyQt6.QtWidgets import QVBoxLayout, QLabel, QProgressBar, QDialog, QApplication
 
-from widgets.keyboard_widget import KeyboardWidget
-from util import tr
+from vial.widgets.keyboard_widget import KeyboardWidget
+from vial.util import tr
 
 
 class Unlocker(QDialog):

@@ -3,16 +3,16 @@ import sys
 
 from PyQt6.QtWidgets import QPushButton, QHBoxLayout, QWidget, QLabel
 
-from editor.basic_editor import BasicEditor
-from macro.macro_action import ActionText, ActionTap, ActionDown, ActionUp
-from macro.macro_action_ui import ui_action
-from macro.macro_key import KeyString, KeyDown, KeyUp, KeyTap
-from macro.macro_optimizer import macro_optimize
-from macro.macro_tab import MacroTab
-from unlocker import Unlocker
-from util import tr
-from vial_device import VialKeyboard
-from widgets.tab_widget_keycodes import TabWidgetWithKeycodes
+from vial.editor.basic_editor import BasicEditor
+from vial.macro.macro_action import ActionText, ActionTap, ActionDown, ActionUp
+from vial.macro.macro_action_ui import ui_action
+from vial.macro.macro_key import KeyString, KeyDown, KeyUp, KeyTap
+from vial.macro.macro_optimizer import macro_optimize
+from vial.macro.macro_tab import MacroTab
+from vial.unlocker import Unlocker
+from vial.util import tr
+from vial.vial_device import VialKeyboard
+from vial.widgets.tab_widget_keycodes import TabWidgetWithKeycodes
 
 
 class MacroRecorder(BasicEditor):
@@ -30,11 +30,11 @@ class MacroRecorder(BasicEditor):
         self.recorder = None
 
         if sys.platform.startswith("linux"):
-            from macro.macro_recorder_linux import LinuxRecorder
+            from vial.macro.macro_recorder_linux import LinuxRecorder
 
             self.recorder = LinuxRecorder()
         elif sys.platform.startswith("win"):
-            from macro.macro_recorder_windows import WindowsRecorder
+            from vial.macro.macro_recorder_windows import WindowsRecorder
 
             self.recorder = WindowsRecorder()
 

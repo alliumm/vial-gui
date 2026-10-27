@@ -3,9 +3,9 @@ from PyQt6 import QtCore
 from PyQt6.QtCore import pyqtSignal, Qt
 from PyQt6.QtWidgets import QLabel, QCheckBox, QComboBox, QGridLayout, QWidget, QSizePolicy
 
-from editor.basic_editor import BasicEditor
-from widgets.keyboard_widget import KeyboardWidget
-from vial_device import VialKeyboard
+from vial.editor.basic_editor import BasicEditor
+from vial.widgets.keyboard_widget import KeyboardWidget
+from vial.vial_device import VialKeyboard
 
 
 class BooleanChoice:

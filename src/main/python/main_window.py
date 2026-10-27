@@ -11,29 +11,29 @@ from PyQt6.QtGui import QAction, QActionGroup
 import os
 import sys
 
-from about_keyboard import AboutKeyboard
-from autorefresh.autorefresh import Autorefresh
-from editor.alt_repeat_key import AltRepeatKey
-from editor.combos import Combos
-from constants import WINDOW_WIDTH, WINDOW_HEIGHT
-from widgets.editor_container import EditorContainer
-from editor.firmware_flasher import FirmwareFlasher
-from editor.key_override import KeyOverride
-from protocol.keyboard_comm import ProtocolError
-from editor.keymap_editor import KeymapEditor
-from keymaps import KEYMAPS
-from editor.layout_editor import LayoutEditor
-from editor.macro_recorder import MacroRecorder
-from editor.qmk_settings import QmkSettings
-from editor.rgb_configurator import RGBConfigurator
-from tabbed_keycodes import TabbedKeycodes
-from editor.tap_dance import TapDance
-from unlocker import Unlocker
-from util import tr, EXAMPLE_KEYBOARDS, KeycodeDisplay, EXAMPLE_KEYBOARD_PREFIX
-from vial_device import VialKeyboard
-from editor.matrix_test import MatrixTest
+from vial.about_keyboard import AboutKeyboard
+from vial.autorefresh.autorefresh import Autorefresh
+from vial.editor.alt_repeat_key import AltRepeatKey
+from vial.editor.combos import Combos
+from vial.constants import WINDOW_WIDTH, WINDOW_HEIGHT
+from vial.widgets.editor_container import EditorContainer
+from vial.editor.firmware_flasher import FirmwareFlasher
+from vial.editor.key_override import KeyOverride
+from vial.protocol.keyboard_comm import ProtocolError
+from vial.editor.keymap_editor import KeymapEditor
+from vial.keymaps import KEYMAPS
+from vial.editor.layout_editor import LayoutEditor
+from vial.editor.macro_recorder import MacroRecorder
+from vial.editor.qmk_settings import QmkSettings
+from vial.editor.rgb_configurator import RGBConfigurator
+from vial.tabbed_keycodes import TabbedKeycodes
+from vial.editor.tap_dance import TapDance
+from vial.unlocker import Unlocker
+from vial.util import tr, EXAMPLE_KEYBOARDS, KeycodeDisplay, EXAMPLE_KEYBOARD_PREFIX
+from vial.vial_device import VialKeyboard
+from vial.editor.matrix_test import MatrixTest
 
-import themes
+from vial import themes
 
 
 class MainWindow(QMainWindow):

@@ -1,5 +1,5 @@
-from keycodes.keycodes import Keycode
-from keymap import (
+from vial.keycodes.keycodes import Keycode
+from vial.keymap import (
     brazilian,
     canadian_csa,
     colemak,

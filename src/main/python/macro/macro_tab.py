@@ -5,14 +5,14 @@ from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtWidgets import QPushButton, QGridLayout, QHBoxLayout, QToolButton, QVBoxLayout, \
     QWidget, QMenu, QScrollArea, QFrame
 
-from keycodes.keycodes import Keycode
-from macro.macro_action import ActionTap
-from macro.macro_action_ui import ActionTextUI, ActionTapUI, ui_action, tag_to_action
-from macro.macro_line import MacroLine
-from protocol.constants import VIAL_PROTOCOL_EXT_MACROS
-from tabbed_keycodes import keycode_filter_masked
-from util import tr, make_scrollable
-from textbox_window import TextboxWindow
+from vial.keycodes.keycodes import Keycode
+from vial.macro.macro_action import ActionTap
+from vial.macro.macro_action_ui import ActionTextUI, ActionTapUI, ui_action, tag_to_action
+from vial.macro.macro_line import MacroLine
+from vial.protocol.constants import VIAL_PROTOCOL_EXT_MACROS
+from vial.tabbed_keycodes import keycode_filter_masked
+from vial.util import tr, make_scrollable
+from vial.textbox_window import TextboxWindow
 
 
 class MacroTab(QVBoxLayout):

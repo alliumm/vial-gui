@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 import struct
 
-from keycodes.keycodes import Keycode, RESET_KEYCODE
-from protocol.base_protocol import BaseProtocol
-from protocol.constants import CMD_VIA_VIAL_PREFIX, CMD_VIAL_DYNAMIC_ENTRY_OP, DYNAMIC_VIAL_COMBO_GET, \
+from vial.keycodes.keycodes import Keycode, RESET_KEYCODE
+from vial.protocol.base_protocol import BaseProtocol
+from vial.protocol.constants import CMD_VIA_VIAL_PREFIX, CMD_VIAL_DYNAMIC_ENTRY_OP, DYNAMIC_VIAL_COMBO_GET, \
     DYNAMIC_VIAL_COMBO_SET
-from unlocker import Unlocker
+from vial.unlocker import Unlocker
 
 
 class ProtocolCombo(BaseProtocol):

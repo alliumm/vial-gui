@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 from PyQt6.QtWidgets import QTabWidget
 
-from tabbed_keycodes import TabbedKeycodes
+from vial.tabbed_keycodes import TabbedKeycodes
 
 
 class TabWidgetWithKeycodes(QTabWidget):

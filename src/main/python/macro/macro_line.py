@@ -3,8 +3,8 @@
 from PyQt6.QtCore import QObject, pyqtSignal, Qt
 from PyQt6.QtWidgets import QHBoxLayout, QToolButton, QComboBox
 
-from macro.macro_action_ui import ActionTextUI, ActionDownUI, ActionUpUI, ActionTapUI, ActionDelayUI
-from protocol.constants import VIAL_PROTOCOL_ADVANCED_MACROS
+from vial.macro.macro_action_ui import ActionTextUI, ActionDownUI, ActionUpUI, ActionTapUI, ActionDelayUI
+from vial.protocol.constants import VIAL_PROTOCOL_ADVANCED_MACROS
 
 
 class MacroLine(QObject):

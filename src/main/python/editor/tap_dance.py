@@ -3,13 +3,13 @@ from PyQt6.QtCore import pyqtSignal, QObject, Qt
 from PyQt6.QtWidgets import QTabWidget, QWidget, QSizePolicy, QGridLayout, QVBoxLayout, QLabel, QHBoxLayout, \
     QPushButton, QSpinBox
 
-from protocol.constants import VIAL_PROTOCOL_DYNAMIC
-from widgets.key_widget import KeyWidget
-from tabbed_keycodes import TabbedKeycodes
-from util import tr
-from vial_device import VialKeyboard
-from editor.basic_editor import BasicEditor
-from widgets.tab_widget_keycodes import TabWidgetWithKeycodes
+from vial.protocol.constants import VIAL_PROTOCOL_DYNAMIC
+from vial.widgets.key_widget import KeyWidget
+from vial.tabbed_keycodes import TabbedKeycodes
+from vial.util import tr
+from vial.vial_device import VialKeyboard
+from vial.editor.basic_editor import BasicEditor
+from vial.widgets.tab_widget_keycodes import TabWidgetWithKeycodes
 
 
 class TapDanceEntryUI(QObject):

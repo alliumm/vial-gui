@@ -4,10 +4,10 @@ from PyQt6.QtGui import QPainter, QColor, QPainterPath, QTransform, QBrush, QPol
 from PyQt6.QtWidgets import QWidget, QToolTip, QApplication
 from PyQt6.QtCore import Qt, QSize, QRect, QPointF, pyqtSignal, QEvent, QRectF
 
-from constants import KEY_SIZE_RATIO, KEY_SPACING_RATIO, KEYBOARD_WIDGET_PADDING, \
+from vial.constants import KEY_SIZE_RATIO, KEY_SPACING_RATIO, KEYBOARD_WIDGET_PADDING, \
     KEYBOARD_WIDGET_MASK_HEIGHT, KEY_ROUNDNESS, SHADOW_SIDE_PADDING, SHADOW_TOP_PADDING, SHADOW_BOTTOM_PADDING, \
     KEYBOARD_WIDGET_NONMASK_PADDING
-from themes import Theme
+from vial.themes import Theme
 
 
 class KeyWidget:

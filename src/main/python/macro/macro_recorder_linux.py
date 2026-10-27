@@ -5,9 +5,9 @@ import os
 from PyQt6.QtCore import pyqtSignal, QProcess, Qt, QIODeviceBase
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication
 
-from keycodes.keycodes import Keycode
-from macro.macro_key import KeyUp, KeyDown
-from util import tr
+from vial.keycodes.keycodes import Keycode
+from vial.macro.macro_key import KeyUp, KeyDown
+from vial.util import tr
 
 
 class LinuxRecorder(QWidget):

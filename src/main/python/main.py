@@ -1,10 +1,11 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 import traceback
 from functools import cached_property
-from importlib import metadata
+from importlib import metadata, resources
 
 from PyQt6 import QtWidgets, QtCore
 from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtGui import QIcon
 
 import sys
 
@@ -53,8 +54,9 @@ class VialApplicationContext:
         # Many Qt classes require a QApplication to have been instantiated.
         # Do this here, before everything else, to achieve this:
         app = self.app
-        # install SIGINT handler
         SignalWakeupHandler(app).install()
+        icon_path = resources.path("vial", "resources/Icon.ico")
+        app.setWindowIcon(QIcon(str(icon_path)))
 
     @cached_property
     def app(self):

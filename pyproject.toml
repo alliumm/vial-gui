@@ -30,4 +30,4 @@ vial = "vial:main"
 vial = "src/main/python"
 
 [tool.setuptools.package-data]
-vial = ["resources/qmk_settings.json"]
+vial = ["resources/Icon.ico", "resources/qmk_settings.json"]

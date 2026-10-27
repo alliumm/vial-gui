@@ -159,8 +159,7 @@ class VirtualKeyboard:
 
 
 class MockDevice:
-
-    def open_path(self, path):
+    def __init__(self, path):
         assert path == "/magic/path/for/tests"
 
     def close(self):
@@ -173,7 +172,7 @@ class MockDevice:
 
         return len(data)
 
-    def read(self, sz, timeout_ms=None):
+    def read(self, sz, timeout=None):
         assert sz == 32
         resp = self.vk.process(self.msg)
         assert len(resp) <= 32
@@ -191,13 +190,13 @@ all_mw = []
 
 
 def prepare(qtbot, keyboard_json, combos=None, tap_dance=None):
-    import hidraw as hid
+    import hid
 
     vk = VirtualKeyboard(keyboard_json, combos=combos, tap_dance=tap_dance)
     MockDevice.vk = vk
 
     hid.enumerate = mock_enumerate
-    hid.device = MockDevice
+    hid.Device = MockDevice
 
     mw = MainWindow(FakeAppctx())
     qtbot.addWidget(mw)

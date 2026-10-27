@@ -11,7 +11,7 @@ if sys.platform == "emscripten":
 
     class hiddevice:
 
-        def open_path(self, path):
+        def __init__(self, path):
             print("opening {}...".format(path))
 
         def write(self, data):
@@ -32,7 +32,7 @@ if sys.platform == "emscripten":
             # hack: we don't know if it's vial or VIA device because webhid doesn't expose serial number
             # so let's probe it with a vial command, and if the response looks good, inject fake vial serial number
             # in the device descriptor
-            dev = hid.device()
+            dev = hid.Device()
             data = hid_send(dev, struct.pack("BB", CMD_VIA_VIAL_PREFIX, CMD_VIAL_GET_KEYBOARD_ID), retries=20)
             uid = data[4:12]
             # here, a VIA keyboard will echo back all zeroes, while vial will return a valid UID
@@ -41,9 +41,13 @@ if sys.platform == "emscripten":
                 desc["serial_number"] = "vial:f64c2b3c"
             return [desc]
 
-        @staticmethod
-        def device():
-            return hiddevice()
+        class Device:
+            @staticmethod
+            def __init__(self):
+                return hiddevice()
+
+        class HIDException(Exception):
+            pass
 
 else:
     import hid

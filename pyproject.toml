@@ -20,6 +20,13 @@ dependencies = [
     # "sip==6.17.2",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+    "pytest-qt==4.5.0",
+    "pytest-xvfb==3.1.1",
+]
+
 [project.gui-scripts]
 vial = "vial:main"
 

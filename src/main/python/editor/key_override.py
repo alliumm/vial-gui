@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-from PyQt6 import QtCore
 from PyQt6.QtCore import Qt, pyqtSignal, QObject
 from PyQt6.QtWidgets import QWidget, QSizePolicy, QGridLayout, QHBoxLayout, QVBoxLayout, QLabel, QCheckBox, QScrollArea, QFrame, QToolButton
 
@@ -195,7 +194,7 @@ class KeyOverrideEntryUI(QObject):
         w.setLayout(self.container)
         l = QVBoxLayout()
         l.addWidget(w)
-        l.setAlignment(w, QtCore.Qt.AlignmentFlag.AlignHCenter)
+        l.setAlignment(w, Qt.AlignmentFlag.AlignHCenter)
         self.w2 = make_scrollable(l)
 
     def populate_container(self):

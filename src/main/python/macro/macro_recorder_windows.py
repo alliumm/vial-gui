@@ -1,8 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 import keyboard
 
-from PyQt6 import QtCore
-from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtCore import pyqtSignal, Qt
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication
 
 from keycodes.keycodes import Keycode
@@ -22,7 +21,7 @@ class WindowsRecorder(QWidget):
         self.old_get_event_names = keyboard._winkeyboard.get_event_names
         keyboard._winkeyboard.get_event_names = self.wrap_get_event_names
 
-        self.setWindowFlags(self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint | QtCore.Qt.FramelessWindowHint)
+        self.setWindowFlags(self.windowFlags() | Qt.WindowType.WindowStaysOnTopHint | Qt.WindowType.FramelessWindowHint)
 
         layout = QVBoxLayout()
         btn = QPushButton(tr("MacroRecorder", "Stop recording"))
@@ -40,7 +39,7 @@ class WindowsRecorder(QWidget):
     def start(self):
         self.show()
 
-        center = QApplication.desktop().availableGeometry(self).center()
+        center = QApplication.primaryScreen().availableGeometry().center()
         self.move(round(center.x() - self.width() * 0.5), 0)
 
         keyboard.hook(self.on_key)

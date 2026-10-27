@@ -127,7 +127,7 @@ class AltRepeatKeyEntryUI(QObject):
         w.setLayout(self.container)
         l = QVBoxLayout()
         l.addWidget(w)
-        l.setAlignment(w, QtCore.Qt.AlignmentFlag.AlignHCenter)
+        l.setAlignment(w, Qt.AlignmentFlag.AlignHCenter)
         self.w2 = make_scrollable(l)
 
     def populate_container(self):

@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-from PyQt6 import QtCore
-from PyQt6.QtCore import pyqtSignal, QObject
+from PyQt6.QtCore import pyqtSignal, QObject, Qt
 from PyQt6.QtGui import QColor
 from PyQt6.QtWidgets import QWidget, QPushButton, QHBoxLayout, QSizePolicy, QGridLayout, QLabel, QSlider, \
     QComboBox, QColorDialog, QCheckBox
@@ -172,7 +171,7 @@ class QmkRgblightHandler(BasicHandler):
 
         self.lbl_underglow_brightness = QLabel(tr("RGBConfigurator", "Underglow Brightness"))
         container.addWidget(self.lbl_underglow_brightness, row + 1, 0)
-        self.underglow_brightness = QSlider(QtCore.Qt.Orientation.Horizontal)
+        self.underglow_brightness = QSlider(Qt.Orientation.Horizontal)
         self.underglow_brightness.setMinimum(0)
         self.underglow_brightness.setMaximum(255)
         self.underglow_brightness.valueChanged.connect(self.on_underglow_brightness_changed)
@@ -243,7 +242,7 @@ class QmkBacklightHandler(BasicHandler):
 
         self.lbl_backlight_brightness = QLabel(tr("RGBConfigurator", "Backlight Brightness"))
         container.addWidget(self.lbl_backlight_brightness, row, 0)
-        self.backlight_brightness = QSlider(QtCore.Qt.Orientation.Horizontal)
+        self.backlight_brightness = QSlider(Qt.Orientation.Horizontal)
         self.backlight_brightness.setMinimum(0)
         self.backlight_brightness.setMaximum(255)
         self.backlight_brightness.valueChanged.connect(self.on_backlight_brightness_changed)
@@ -300,7 +299,7 @@ class VialRGBHandler(BasicHandler):
 
         self.lbl_rgb_brightness = QLabel(tr("RGBConfigurator", "RGB Brightness"))
         container.addWidget(self.lbl_rgb_brightness, row + 2, 0)
-        self.rgb_brightness = QSlider(QtCore.Qt.Orientation.Horizontal)
+        self.rgb_brightness = QSlider(Qt.Orientation.Horizontal)
         self.rgb_brightness.setMinimum(0)
         self.rgb_brightness.setMaximum(255)
         self.rgb_brightness.valueChanged.connect(self.on_rgb_brightness_changed)
@@ -308,7 +307,7 @@ class VialRGBHandler(BasicHandler):
 
         self.lbl_rgb_speed = QLabel(tr("RGBConfigurator", "RGB Speed"))
         container.addWidget(self.lbl_rgb_speed, row + 3, 0)
-        self.rgb_speed = QSlider(QtCore.Qt.Orientation.Horizontal)
+        self.rgb_speed = QSlider(Qt.Orientation.Horizontal)
         self.rgb_speed.setMinimum(0)
         self.rgb_speed.setMaximum(255)
         self.rgb_speed.valueChanged.connect(self.on_rgb_speed_changed)
@@ -391,7 +390,7 @@ class RGBConfigurator(BasicEditor):
         self.container = QGridLayout()
         w.setLayout(self.container)
         self.addWidget(w)
-        self.setAlignment(w, QtCore.Qt.AlignmentFlag.AlignHCenter)
+        self.setAlignment(w, Qt.AlignmentFlag.AlignHCenter)
 
         self.handler_backlight = QmkBacklightHandler(self.container)
         self.handler_backlight.update.connect(self.update_from_keyboard)

@@ -179,7 +179,7 @@ class FirmwareFlasher(BasicEditor):
     def on_click_select_file(self):
         dialog = QFileDialog()
         dialog.setDefaultSuffix("vfw")
-        dialog.setAcceptMode(QFileDialog.AcceptOpen)
+        dialog.setAcceptMode(QFileDialog.AcceptMode.AcceptOpen)
         dialog.setNameFilters(["Vial Firmware (*.vfw)"])
         if dialog.exec() == QDialog.DialogCode.Accepted:
             self.selected_firmware_path = dialog.selectedFiles()[0]

@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-from PyQt6 import QtCore
-from PyQt6.QtCore import pyqtSignal, QObject
+from PyQt6.QtCore import pyqtSignal, QObject, Qt
 from PyQt6.QtWidgets import QTabWidget, QWidget, QSizePolicy, QGridLayout, QVBoxLayout, QLabel, QHBoxLayout, \
     QPushButton, QSpinBox
 
@@ -32,11 +31,11 @@ class TapDanceEntryUI(QObject):
         l.addStretch()
         l.addSpacing(10)
         l.addWidget(w)
-        l.setAlignment(w, QtCore.Qt.AlignmentFlag.AlignHCenter)
+        l.setAlignment(w, Qt.AlignmentFlag.AlignHCenter)
         l.addSpacing(10)
         lbl = QLabel("Use <code>TD({})</code> to set up this action in the keymap.".format(self.idx))
         l.addWidget(lbl)
-        l.setAlignment(lbl, QtCore.Qt.AlignmentFlag.AlignHCenter)
+        l.setAlignment(lbl, Qt.AlignmentFlag.AlignHCenter)
         l.addStretch()
         self.w2 = QWidget()
         self.w2.setLayout(l)

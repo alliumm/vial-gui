@@ -2,7 +2,7 @@
 import sys
 import time
 
-from PyQt6.QtCore import Qt, QTimer, QCoreApplication, QByteArray, QBuffer, QIODevice
+from PyQt6.QtCore import Qt, QTimer, QCoreApplication, QByteArray, QBuffer, QIODeviceBase
 from PyQt6.QtGui import QPalette
 from PyQt6.QtWidgets import QVBoxLayout, QLabel, QProgressBar, QDialog, QApplication
 
@@ -16,7 +16,7 @@ class Unlocker(QDialog):
         super().__init__()
 
         self.setStyleSheet("background-color: {}".format(
-            QApplication.palette().color(QPalette.Button).lighter(130).name()))
+            QApplication.palette().color(QPalette.ColorRole.Button).lighter(130).name()))
 
         self.keyboard = keyboard
 
@@ -40,7 +40,7 @@ class Unlocker(QDialog):
         layout.addWidget(self.progress)
 
         self.setLayout(layout)
-        self.setWindowFlags(Qt.Dialog | Qt.WindowTitleHint | Qt.CustomizeWindowHint)
+        self.setWindowFlags(Qt.WindowType.Dialog | Qt.WindowType.WindowTitleHint | Qt.WindowType.CustomizeWindowHint)
 
         self.update_reference()
         self.timer = QTimer()
@@ -96,7 +96,7 @@ class Unlocker(QDialog):
             # convert QPixmap to bytes
             ba = QByteArray()
             buff = QBuffer(ba)
-            buff.open(QIODevice.WriteOnly)
+            buff.open(QIODeviceBase.OpenModeFlag.WriteOnly)
             pixmap.save(buff, "PNG")
             pixmap_bytes = ba.data()
 

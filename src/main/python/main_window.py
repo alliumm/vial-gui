@@ -51,8 +51,6 @@ class MainWindow(QMainWindow):
             self.resize(WINDOW_WIDTH, WINDOW_HEIGHT)
 
         _pos = self.settings.value("pos", None)
-        # NOTE: QDesktopWidget is obsolete, but QApplication.screenAt only usable in Qt 5.10+
-        # if _pos and QApplication.desktop().geometry().contains(QRect(_pos, self.size())):
         if _pos and QApplication.screenAt(_pos) and QApplication.screenAt(_pos + (self.rect().bottomRight())):
             self.move(self.settings.value("pos"))
 

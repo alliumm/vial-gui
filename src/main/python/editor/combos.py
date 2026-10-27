@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-from PyQt6 import QtCore
-from PyQt6.QtCore import pyqtSignal, QObject
+from PyQt6.QtCore import pyqtSignal, QObject, Qt
 from PyQt6.QtWidgets import QWidget, QSizePolicy, QGridLayout, QVBoxLayout, QLabel
 
 from protocol.constants import VIAL_PROTOCOL_DYNAMIC
@@ -27,7 +26,7 @@ class ComboEntryUI(QObject):
         w.setLayout(self.container)
         l = QVBoxLayout()
         l.addWidget(w)
-        l.setAlignment(w, QtCore.Qt.AlignmentFlag.AlignHCenter)
+        l.setAlignment(w, Qt.AlignmentFlag.AlignHCenter)
         self.w2 = QWidget()
         self.w2.setLayout(l)
 

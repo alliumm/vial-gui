@@ -2,8 +2,7 @@
 import sys
 import os
 
-from PyQt6 import QtCore
-from PyQt6.QtCore import pyqtSignal, QProcess, Qt
+from PyQt6.QtCore import pyqtSignal, QProcess, Qt, QIODeviceBase
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication
 
 from keycodes.keycodes import Keycode
@@ -34,14 +33,14 @@ class LinuxRecorder(QWidget):
     def start(self):
         self.show()
 
-        center = QApplication.desktop().availableGeometry(self).center()
+        center = QApplication.primaryScreen().availableGeometry().center()
         self.move(round(center.x() - self.width() * 0.5), 0)
 
         args = [sys.executable]
         args += sys.argv
         args += ["--linux-recorder"]
 
-        self.process.start("pkexec", args, QProcess.Unbuffered | QProcess.ReadWrite)
+        self.process.start("pkexec", args, QIODeviceBase.OpenModeFlag.Unbuffered | QIODeviceBase.OpenModeFlag.ReadWrite)
 
     def on_stop(self):
         self.stop()

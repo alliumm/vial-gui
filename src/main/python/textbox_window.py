@@ -17,7 +17,7 @@ class TextboxWindow(QDialog):
 
         self.control_held = False
 
-        self.setWindowFlags(self.windowFlags() & ~Qt.WindowContextHelpButtonHint)
+        self.setWindowFlags(self.windowFlags() & ~Qt.WindowType.WindowContextHelpButtonHint)
 
         vbox = QVBoxLayout()
 
@@ -81,7 +81,7 @@ class TextboxWindow(QDialog):
     def on_export(self):
         dialog = QFileDialog()
         dialog.setDefaultSuffix(self.file_extension)
-        dialog.setAcceptMode(QFileDialog.AcceptSave)
+        dialog.setAcceptMode(QFileDialog.AcceptMode.AcceptSave)
         dialog.setNameFilters(["{} (*.{})".format(self.file_type, self.file_extension)])
 
         if dialog.exec() == QDialog.DialogCode.Accepted:
@@ -91,7 +91,7 @@ class TextboxWindow(QDialog):
     def on_import(self):
         dialog = QFileDialog()
         dialog.setDefaultSuffix(self.file_extension)
-        dialog.setAcceptMode(QFileDialog.AcceptOpen)
+        dialog.setAcceptMode(QFileDialog.AcceptMode.AcceptOpen)
         dialog.setNameFilters(["{} (*.{})".format(self.file_type, self.file_extension)])
 
         if dialog.exec() == QDialog.DialogCode.Accepted:
@@ -102,19 +102,19 @@ class TextboxWindow(QDialog):
         return self.macrotext.toPlainText()
 
     def keyPressEvent(self, ev):
-        if ev.key() == Qt.Key_Escape:
+        if ev.key() == Qt.Key.Key_Escape:
             self.reject()
 
-        if ev.key() == Qt.Key_Control:
+        if ev.key() == Qt.Key.Key_Control:
             self.control_held = True
 
         if self.control_held:
-            if ev.key() == Qt.Key_O:
+            if ev.key() == Qt.Key.Key_O:
                 self.on_import()
 
-            if ev.key() == Qt.Key_S:
+            if ev.key() == Qt.Key.Key_S:
                 self.on_export()
 
     def keyReleaseEvent(self, ev):
-        if ev.key() == Qt.Key_Control:
+        if ev.key() == Qt.Key.Key_Control:
             self.control_held = False

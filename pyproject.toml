@@ -16,7 +16,6 @@ dependencies = [
     "simpleeval==1.0.8",
     "sip==4.19.8",
     "pywin32==303; sys_platform == 'win32'",
-    "certifi",
 ]
 
 [project.optional-dependencies]

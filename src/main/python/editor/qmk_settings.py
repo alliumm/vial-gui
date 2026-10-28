@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 import json
 from collections import defaultdict
+from importlib import resources
 
 from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSignal, QObject
@@ -235,7 +236,7 @@ class QmkSettings(BasicEditor):
     @classmethod
     def initialize(cls, appctx):
         cls.qsid_fields = defaultdict(list)
-        with open(appctx.get_resource("qmk_settings.json"), "r") as inf:
+        with resources.open_text("vial", "resources/qmk_settings.json") as inf:
             cls.settings_defs = json.load(inf)
         for tab in cls.settings_defs["tabs"]:
             for field in tab["fields"]:

@@ -7,18 +7,19 @@ if ssl.get_default_verify_paths().cafile is None:
     os.environ['SSL_CERT_FILE'] = certifi.where()
 
 import traceback
+from functools import cached_property
+from importlib import metadata, resources
 
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import pyqtSignal
-
-from fbs_runtime.application_context import cached_property
-from fbs_runtime.application_context.PyQt5 import ApplicationContext
+from PyQt5.QtGui import QIcon
 
 import sys
 
 from vial.main_window import MainWindow
 
 
+from vial.fbs_signal_handler import SignalWakeupHandler
 # http://timlehr.com/python-exception-hooks-with-qt-message-box/
 from vial.util import init_logger
 
@@ -55,22 +56,30 @@ class UncaughtHook(QtCore.QObject):
             self._exception_caught.emit(log_msg)
         sys._excepthook(exc_type, exc_value, exc_traceback)
 
-class VialApplicationContext(ApplicationContext):
+class VialApplicationContext:
+    def __init__(self):
+        # Many Qt classes require a QApplication to have been instantiated.
+        # Do this here, before everything else, to achieve this:
+        app = self.app
+        SignalWakeupHandler(app).install()
+        icon_path = resources.path("vial", "resources/Icon.ico")
+        app.setWindowIcon(QIcon(str(icon_path)))
+
     @cached_property
     def app(self):
         # Override the app definition in order to set WM_CLASS.
         result = QtWidgets.QApplication(sys.argv)
-        result.setApplicationName(self.build_settings["app_name"])
+        result.setApplicationName("Vial")
         result.setOrganizationDomain("vial.today")
 
         #TODO: Qt sets applicationVersion on non-Linux platforms if the exe/pkg metadata is correctly configured.
         # https://doc.qt.io/qt-5/qcoreapplication.html#applicationVersion-prop
         # Verify it is, and only set manually on Linux.
         #if sys.platform.startswith("linux"):
-        result.setApplicationVersion(self.build_settings["version"])
+        result.setApplicationVersion(metadata.version("vial-gui"))
         return result
 
-if __name__ == '__main__':
+def main():
     if len(sys.argv) == 2 and sys.argv[1] == "--linux-recorder":
         from vial.linux_keystroke_recorder import linux_keystroke_recorder
 
@@ -82,4 +91,7 @@ if __name__ == '__main__':
         window = MainWindow(appctxt)
         window.show()
         exit_code = appctxt.app.exec_()      # 2. Invoke appctxt.app.exec_()
-        sys.exit(exit_code)
+        return exit_code
+
+if __name__ == '__main__':
+    main()

@@ -6,16 +6,11 @@ build-backend = "setuptools.build_meta"
 name = "vial-gui"
 version = "0.7.5"
 dependencies = [
-    "altgraph==0.17",
-    "future==0.18.2",
     "hid>=1.0.8",
     "keyboard==0.13.5",
-    "macholib==1.14",
-    "pefile==2019.4.18",
     "PyQt6>=6.11.0",
+    "pywin32==312; sys_platform == 'win32'",
     "simpleeval==1.0.8",
-    "sip==4.19.8",
-    "pywin32==303; sys_platform == 'win32'",
 ]
 
 [project.optional-dependencies]

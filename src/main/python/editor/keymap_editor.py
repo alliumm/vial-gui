@@ -4,14 +4,14 @@ import json
 from PyQt5.QtWidgets import QHBoxLayout, QLabel, QVBoxLayout, QMessageBox, QWidget
 from PyQt5.QtCore import Qt, pyqtSignal
 
-from any_keycode_dialog import AnyKeycodeDialog
-from editor.basic_editor import BasicEditor
-from widgets.keyboard_widget import KeyboardWidget, EncoderWidget
-from keycodes.keycodes import Keycode
-from widgets.square_button import SquareButton
-from tabbed_keycodes import TabbedKeycodes, keycode_filter_masked
-from util import tr, KeycodeDisplay
-from vial_device import VialKeyboard
+from vial.any_keycode_dialog import AnyKeycodeDialog
+from vial.editor.basic_editor import BasicEditor
+from vial.widgets.keyboard_widget import KeyboardWidget, EncoderWidget
+from vial.keycodes.keycodes import Keycode
+from vial.widgets.square_button import SquareButton
+from vial.tabbed_keycodes import TabbedKeycodes, keycode_filter_masked
+from vial.util import tr, KeycodeDisplay
+from vial.vial_device import VialKeyboard
 
 
 class ClickableWidget(QWidget):

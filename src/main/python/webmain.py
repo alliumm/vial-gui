@@ -13,7 +13,7 @@ from main_window import MainWindow
 
 
 # http://timlehr.com/python-exception-hooks-with-qt-message-box/
-from util import init_logger
+from vial.util import init_logger
 
 window = None
 

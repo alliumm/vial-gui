@@ -2,11 +2,11 @@
 import struct
 import sys
 
-from protocol.constants import CMD_VIA_VIAL_PREFIX, CMD_VIAL_GET_KEYBOARD_ID
+from vial.protocol.constants import CMD_VIA_VIAL_PREFIX, CMD_VIAL_GET_KEYBOARD_ID
 
 if sys.platform == "emscripten":
 
-    import vialglue
+    from vial import vialglue
     import json
 
     class hiddevice:
@@ -26,7 +26,7 @@ if sys.platform == "emscripten":
 
         @staticmethod
         def enumerate():
-            from util import hid_send
+            from vial.util import hid_send
 
             desc = json.loads(vialglue.get_device_desc())
             # hack: we don't know if it's vial or VIA device because webhid doesn't expose serial number

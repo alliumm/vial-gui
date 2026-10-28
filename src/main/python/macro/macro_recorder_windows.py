@@ -5,9 +5,9 @@ from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication
 
-from keycodes.keycodes import Keycode
-from macro.macro_key import KeyUp, KeyDown
-from util import tr
+from vial.keycodes.keycodes import Keycode
+from vial.macro.macro_key import KeyUp, KeyDown
+from vial.util import tr
 
 
 class WindowsRecorder(QWidget):

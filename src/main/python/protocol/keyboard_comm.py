@@ -4,11 +4,11 @@ import json
 import lzma
 from collections import OrderedDict
 
-from keycodes.keycodes import RESET_KEYCODE, Keycode, recreate_keyboard_keycodes
-from kle_serial import Serial as KleSerial
-from protocol.alt_repeat_key import ProtocolAltRepeatKey
-from protocol.combo import ProtocolCombo
-from protocol.constants import CMD_VIA_GET_PROTOCOL_VERSION, CMD_VIA_GET_KEYBOARD_VALUE, CMD_VIA_SET_KEYBOARD_VALUE, \
+from vial.keycodes.keycodes import RESET_KEYCODE, Keycode, recreate_keyboard_keycodes
+from vial.kle_serial import Serial as KleSerial
+from vial.protocol.alt_repeat_key import ProtocolAltRepeatKey
+from vial.protocol.combo import ProtocolCombo
+from vial.protocol.constants import CMD_VIA_GET_PROTOCOL_VERSION, CMD_VIA_GET_KEYBOARD_VALUE, CMD_VIA_SET_KEYBOARD_VALUE, \
     CMD_VIA_SET_KEYCODE, CMD_VIA_LIGHTING_SET_VALUE, CMD_VIA_LIGHTING_GET_VALUE, CMD_VIA_LIGHTING_SAVE, \
     CMD_VIA_GET_LAYER_COUNT, CMD_VIA_KEYMAP_GET_BUFFER, CMD_VIA_VIAL_PREFIX, VIA_LAYOUT_OPTIONS, \
     VIA_SWITCH_MATRIX_STATE, QMK_BACKLIGHT_BRIGHTNESS, QMK_BACKLIGHT_EFFECT, QMK_RGBLIGHT_BRIGHTNESS, \
@@ -17,12 +17,12 @@ from protocol.constants import CMD_VIA_GET_PROTOCOL_VERSION, CMD_VIA_GET_KEYBOAR
     CMD_VIAL_GET_ENCODER, CMD_VIAL_SET_ENCODER, CMD_VIAL_GET_UNLOCK_STATUS, CMD_VIAL_UNLOCK_START, CMD_VIAL_UNLOCK_POLL, \
     CMD_VIAL_LOCK, CMD_VIAL_QMK_SETTINGS_QUERY, CMD_VIAL_QMK_SETTINGS_GET, CMD_VIAL_QMK_SETTINGS_SET, \
     CMD_VIAL_QMK_SETTINGS_RESET, BUFFER_FETCH_CHUNK, VIAL_PROTOCOL_QMK_SETTINGS
-from protocol.dynamic import ProtocolDynamic
-from protocol.key_override import ProtocolKeyOverride
-from protocol.macro import ProtocolMacro
-from protocol.tap_dance import ProtocolTapDance
-from unlocker import Unlocker
-from util import MSG_LEN, hid_send
+from vial.protocol.dynamic import ProtocolDynamic
+from vial.protocol.key_override import ProtocolKeyOverride
+from vial.protocol.macro import ProtocolMacro
+from vial.protocol.tap_dance import ProtocolTapDance
+from vial.unlocker import Unlocker
+from vial.util import MSG_LEN, hid_send
 
 SUPPORTED_VIA_PROTOCOL = [-1, 9]
 SUPPORTED_VIAL_PROTOCOL = [-1, 0, 1, 2, 3, 4, 5, 6]

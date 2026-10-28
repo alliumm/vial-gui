@@ -6,15 +6,15 @@ from PyQt5.QtCore import QPoint
 from PyQt5.QtWidgets import QPushButton
 from pytestqt.qt_compat import qt_api
 
-from main_window import MainWindow
+from vial.main_window import MainWindow
 
-from protocol.constants import CMD_VIA_GET_PROTOCOL_VERSION, CMD_VIA_VIAL_PREFIX, CMD_VIAL_GET_KEYBOARD_ID, \
+from vial.protocol.constants import CMD_VIA_GET_PROTOCOL_VERSION, CMD_VIA_VIAL_PREFIX, CMD_VIAL_GET_KEYBOARD_ID, \
     CMD_VIAL_GET_SIZE, CMD_VIAL_GET_DEFINITION, CMD_VIA_GET_LAYER_COUNT, CMD_VIA_MACRO_GET_COUNT, \
     CMD_VIA_MACRO_GET_BUFFER_SIZE, CMD_VIAL_QMK_SETTINGS_QUERY, CMD_VIAL_DYNAMIC_ENTRY_OP, \
     DYNAMIC_VIAL_GET_NUMBER_OF_ENTRIES, CMD_VIA_KEYMAP_GET_BUFFER, CMD_VIA_MACRO_GET_BUFFER, CMD_VIAL_GET_UNLOCK_STATUS, \
     CMD_VIA_SET_KEYCODE, DYNAMIC_VIAL_COMBO_GET, DYNAMIC_VIAL_COMBO_SET, DYNAMIC_VIAL_TAP_DANCE_GET, \
     DYNAMIC_VIAL_TAP_DANCE_SET
-from widgets.square_button import SquareButton
+from vial.widgets.square_button import SquareButton
 
 FAKE_KEYBOARD = """
 {
@@ -440,7 +440,7 @@ def test_layer_switch(qtbot):
 
 
 def test_combos(qtbot):
-    from widgets.key_widget import KeyWidget
+    from vial.widgets.key_widget import KeyWidget
 
     """ Tests setting combo keycodes """
     mw, vk = prepare(qtbot, FAKE_KEYBOARD, combos=[[0, 0, 0, 0, 0], [4, 5, 6, 7, 8], [0, 0x106, 0, 0, 0]])
@@ -526,7 +526,7 @@ def test_combos(qtbot):
 
 
 def test_tap_dance(qtbot):
-    from widgets.key_widget import KeyWidget
+    from vial.widgets.key_widget import KeyWidget
     from PyQt5.QtWidgets import QSpinBox
 
     mw, vk = prepare(qtbot, FAKE_KEYBOARD, tap_dance=[[0, 0, 0, 0, 200], [4, 5, 6, 7, 200], [0, 0x106, 0, 0, 500]])

@@ -3,7 +3,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QDialog, QDialogButtonBox, \
     QPlainTextEdit, QToolButton, QFileDialog, QWidget
 
-from util import tr
+from vial.util import tr
 
 class TextboxWindow(QDialog):
 

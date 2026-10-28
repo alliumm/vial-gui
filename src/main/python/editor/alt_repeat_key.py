@@ -3,14 +3,14 @@ from PyQt5 import QtCore
 from PyQt5.QtCore import Qt, pyqtSignal, QObject
 from PyQt5.QtWidgets import QWidget, QSizePolicy, QGridLayout, QHBoxLayout, QVBoxLayout, QLabel, QCheckBox, QScrollArea, QFrame, QToolButton
 
-from protocol.constants import VIAL_PROTOCOL_DYNAMIC
-from util import make_scrollable, tr
-from widgets.key_widget import KeyWidget
-from protocol.alt_repeat_key import AltRepeatKeyOptions, AltRepeatKeyEntry
-from vial_device import VialKeyboard
-from editor.basic_editor import BasicEditor
-from widgets.checkbox_no_padding import CheckBoxNoPadding
-from widgets.tab_widget_keycodes import TabWidgetWithKeycodes
+from vial.protocol.constants import VIAL_PROTOCOL_DYNAMIC
+from vial.util import make_scrollable, tr
+from vial.widgets.key_widget import KeyWidget
+from vial.protocol.alt_repeat_key import AltRepeatKeyOptions, AltRepeatKeyEntry
+from vial.vial_device import VialKeyboard
+from vial.editor.basic_editor import BasicEditor
+from vial.widgets.checkbox_no_padding import CheckBoxNoPadding
+from vial.widgets.tab_widget_keycodes import TabWidgetWithKeycodes
 
 
 class ModsUI(QWidget):

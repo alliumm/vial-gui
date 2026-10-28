@@ -1,6 +1,6 @@
 import unittest
 
-from keycodes.keycodes import Keycode, recreate_keyboard_keycodes
+from vial.keycodes.keycodes import Keycode, recreate_keyboard_keycodes
 
 
 class FakeKeyboard:

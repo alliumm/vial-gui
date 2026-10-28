@@ -10,9 +10,9 @@ from PyQt5.QtCore import QCoreApplication, QStandardPaths
 from PyQt5.QtGui import QPalette
 from PyQt5.QtWidgets import QApplication, QWidget, QScrollArea, QFrame
 
-from hidproxy import hid
-from keycodes.keycodes import Keycode
-from keymaps import KEYMAPS
+from vial.hidproxy import hid
+from vial.keycodes.keycodes import Keycode
+from vial.keymaps import KEYMAPS
 
 tr = QCoreApplication.translate
 
@@ -94,7 +94,7 @@ def is_rawhid(desc, quiet):
 
 
 def find_vial_devices(via_stack_json, sideload_vid=None, sideload_pid=None, quiet=False):
-    from vial_device import VialBootloader, VialKeyboard, VialDummyKeyboard
+    from vial.vial_device import VialBootloader, VialKeyboard, VialDummyKeyboard
 
     filtered = []
     for dev in hid.enumerate():

@@ -16,11 +16,11 @@ from fbs_runtime.application_context.PyQt5 import ApplicationContext
 
 import sys
 
-from main_window import MainWindow
+from vial.main_window import MainWindow
 
 
 # http://timlehr.com/python-exception-hooks-with-qt-message-box/
-from util import init_logger
+from vial.util import init_logger
 
 
 def show_exception_box(log_msg):
@@ -72,7 +72,7 @@ class VialApplicationContext(ApplicationContext):
 
 if __name__ == '__main__':
     if len(sys.argv) == 2 and sys.argv[1] == "--linux-recorder":
-        from linux_keystroke_recorder import linux_keystroke_recorder
+        from vial.linux_keystroke_recorder import linux_keystroke_recorder
 
         linux_keystroke_recorder()
     else:

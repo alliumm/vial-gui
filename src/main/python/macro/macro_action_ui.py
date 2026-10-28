@@ -1,11 +1,11 @@
 from PyQt5.QtCore import QObject, pyqtSignal, Qt
 from PyQt5.QtWidgets import QLineEdit, QToolButton, QWidget, QSizePolicy, QSpinBox
 
-from constants import KEY_SIZE_RATIO
-from tabbed_keycodes import TabbedKeycodes
-from widgets.flowlayout import FlowLayout
-from macro.macro_action import ActionText, ActionSequence, ActionDown, ActionUp, ActionTap, ActionDelay
-from widgets.key_widget import KeyWidget
+from vial.constants import KEY_SIZE_RATIO
+from vial.tabbed_keycodes import TabbedKeycodes
+from vial.widgets.flowlayout import FlowLayout
+from vial.macro.macro_action import ActionText, ActionSequence, ActionDown, ActionUp, ActionTap, ActionDelay
+from vial.widgets.key_widget import KeyWidget
 
 
 class DeletableKeyWidget(KeyWidget):

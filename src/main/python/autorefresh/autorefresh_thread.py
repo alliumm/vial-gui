@@ -13,7 +13,7 @@ else:
 
 from PyQt5.QtCore import pyqtSignal, QThread
 
-from util import find_vial_devices
+from vial.util import find_vial_devices
 
 
 class AutorefreshThread(QThread):

@@ -1,11 +1,11 @@
 from PyQt5.QtCore import pyqtSignal
 
-from keycodes.keycodes import Keycode
-from any_keycode_dialog import AnyKeycodeDialog
-from widgets.keyboard_widget import KeyboardWidget
-from kle_serial import Key
-from tabbed_keycodes import TabbedKeycodes, keycode_filter_masked, keycode_filter_any
-from util import KeycodeDisplay
+from vial.keycodes.keycodes import Keycode
+from vial.any_keycode_dialog import AnyKeycodeDialog
+from vial.widgets.keyboard_widget import KeyboardWidget
+from vial.kle_serial import Key
+from vial.tabbed_keycodes import TabbedKeycodes, keycode_filter_masked, keycode_filter_any
+from vial.util import KeycodeDisplay
 
 
 class KeyWidget(KeyboardWidget):

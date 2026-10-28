@@ -2,7 +2,7 @@ import time
 import win32gui, win32con, win32api
 import win32gui_struct
 
-from autorefresh.autorefresh_thread import AutorefreshThread
+from vial.autorefresh.autorefresh_thread import AutorefreshThread
 
 
 GUID_DEVINTERFACE_USB_DEVICE = "{A5DCBF10-6530-11D2-901F-00C04FB951ED}"

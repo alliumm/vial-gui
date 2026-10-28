@@ -2,9 +2,9 @@ import unittest
 import lzma
 import struct
 
-from keycodes.keycodes import Keycode
-from protocol.keyboard_comm import Keyboard
-from util import chunks, MSG_LEN
+from vial.keycodes.keycodes import Keycode
+from vial.protocol.keyboard_comm import Keyboard
+from vial.util import chunks, MSG_LEN
 
 LAYOUT_2x2 = """
 {"name":"test","vendorId":"0x0000","productId":"0x1111","lighting":"none","matrix":{"rows":2,"cols":2},"layouts":{"keymap":[["0,0","0,1"],["1,0","1,1"]]}}

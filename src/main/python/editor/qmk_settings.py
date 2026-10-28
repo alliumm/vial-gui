@@ -7,10 +7,10 @@ from PyQt5.QtCore import pyqtSignal, QObject
 from PyQt5.QtWidgets import QVBoxLayout, QCheckBox, QGridLayout, QLabel, QWidget, QSizePolicy, QTabWidget, QSpinBox, \
     QHBoxLayout, QPushButton, QMessageBox
 
-from editor.basic_editor import BasicEditor
-from protocol.constants import VIAL_PROTOCOL_QMK_SETTINGS
-from util import tr
-from vial_device import VialKeyboard
+from vial.editor.basic_editor import BasicEditor
+from vial.protocol.constants import VIAL_PROTOCOL_QMK_SETTINGS
+from vial.util import tr
+from vial.vial_device import VialKeyboard
 
 
 class GenericOption(QObject):

@@ -3,7 +3,7 @@ import ast
 import simpleeval
 import operator
 
-from keycodes.keycodes import KEYCODES_SPECIAL, KEYCODES_BASIC, KEYCODES_SHIFTED, KEYCODES_ISO, KEYCODES_BACKLIGHT, \
+from vial.keycodes.keycodes import KEYCODES_SPECIAL, KEYCODES_BASIC, KEYCODES_SHIFTED, KEYCODES_ISO, KEYCODES_BACKLIGHT, \
     KEYCODES_MEDIA, KEYCODES_USER, Keycode
 
 r = Keycode.resolve

@@ -3,11 +3,11 @@ from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSignal, QObject
 from PyQt5.QtWidgets import QWidget, QSizePolicy, QGridLayout, QVBoxLayout, QLabel
 
-from protocol.constants import VIAL_PROTOCOL_DYNAMIC
-from widgets.key_widget import KeyWidget
-from vial_device import VialKeyboard
-from editor.basic_editor import BasicEditor
-from widgets.tab_widget_keycodes import TabWidgetWithKeycodes
+from vial.protocol.constants import VIAL_PROTOCOL_DYNAMIC
+from vial.widgets.key_widget import KeyWidget
+from vial.vial_device import VialKeyboard
+from vial.editor.basic_editor import BasicEditor
+from vial.widgets.tab_widget_keycodes import TabWidgetWithKeycodes
 
 
 class ComboEntryUI(QObject):

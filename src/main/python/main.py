@@ -10,9 +10,9 @@ import traceback
 from functools import cached_property
 from importlib import metadata, resources
 
-from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtCore import pyqtSignal
-from PyQt5.QtGui import QIcon
+from PyQt6 import QtWidgets, QtCore
+from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtGui import QIcon
 
 import sys
 
@@ -28,7 +28,7 @@ def show_exception_box(log_msg):
     if QtWidgets.QApplication.instance() is not None:
         errorbox = QtWidgets.QMessageBox()
         errorbox.setText(log_msg)
-        errorbox.exec_()
+        errorbox.exec()
 
 
 class UncaughtHook(QtCore.QObject):
@@ -90,7 +90,7 @@ def main():
         qt_exception_hook = UncaughtHook()
         window = MainWindow(appctxt)
         window.show()
-        exit_code = appctxt.app.exec_()      # 2. Invoke appctxt.app.exec_()
+        exit_code = appctxt.app.exec()      # 2. Invoke appctxt.app.exec()
         return exit_code
 
 if __name__ == '__main__':

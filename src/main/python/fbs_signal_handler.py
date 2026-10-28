@@ -1,7 +1,7 @@
 import signal
 from socket import SOCK_DGRAM, socketpair
 
-from PyQt5.QtNetwork import QAbstractSocket
+from PyQt6.QtNetwork import QAbstractSocket
 
 
 class SignalWakeupHandler:

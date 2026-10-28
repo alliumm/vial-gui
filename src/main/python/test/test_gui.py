@@ -2,8 +2,8 @@ import lzma
 import os.path
 import struct
 
-from PyQt5.QtCore import QPoint
-from PyQt5.QtWidgets import QPushButton
+from PyQt6.QtCore import QPoint
+from PyQt6.QtWidgets import QPushButton
 from pytestqt.qt_compat import qt_api
 
 from vial.main_window import MainWindow
@@ -479,7 +479,7 @@ def test_combos(qtbot):
     min_y = min(p.y() for p in bbox)
     max_y = max(p.y() for p in bbox)
     pos_mask = QPoint(int((min_x + max_x) / 2), int(min_y + (max_y - min_y) * 4/5))
-    pos = QPoint(bbox[0].x(), bbox[0].y())
+    pos = QPoint(int(bbox[0].x()), int(bbox[0].y()))
     qtbot.mouseClick(w[0], qt_api.QtCore.Qt.MouseButton.LeftButton, pos=pos)
     assert mw.tray_keycodes.isVisible()
 
@@ -526,7 +526,7 @@ def test_combos(qtbot):
 
 def test_tap_dance(qtbot):
     from vial.widgets.key_widget import KeyWidget
-    from PyQt5.QtWidgets import QSpinBox
+    from PyQt6.QtWidgets import QSpinBox
 
     mw, vk = prepare(qtbot, FAKE_KEYBOARD, tap_dance=[[0, 0, 0, 0, 200], [4, 5, 6, 7, 200], [0, 0x106, 0, 0, 500]])
 
@@ -569,7 +569,7 @@ def test_tap_dance(qtbot):
     min_y = min(p.y() for p in bbox)
     max_y = max(p.y() for p in bbox)
     pos_mask = QPoint(int((min_x + max_x) / 2), int(min_y + (max_y - min_y) * 4/5))
-    pos = QPoint(bbox[0].x(), bbox[0].y())
+    pos = QPoint(int(bbox[0].x()), int(bbox[0].y()))
     qtbot.mouseClick(w[0], qt_api.QtCore.Qt.MouseButton.LeftButton, pos=pos)
     assert mw.tray_keycodes.isVisible()
 

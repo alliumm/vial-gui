@@ -2,9 +2,8 @@
 import sys
 import os
 
-from PyQt5 import QtCore
-from PyQt5.QtCore import pyqtSignal, QProcess
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication
+from PyQt6.QtCore import pyqtSignal, QProcess, Qt, QIODeviceBase
+from PyQt6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication
 
 from vial.keycodes.keycodes import Keycode
 from vial.macro.macro_key import KeyUp, KeyDown
@@ -22,7 +21,7 @@ class LinuxRecorder(QWidget):
         self.process = QProcess()
         self.process.readyReadStandardOutput.connect(self.on_output)
 
-        self.setWindowFlags(self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint | QtCore.Qt.X11BypassWindowManagerHint)
+        self.setWindowFlags(self.windowFlags() | Qt.WindowType.WindowStaysOnTopHint | Qt.WindowType.X11BypassWindowManagerHint)
 
         layout = QVBoxLayout()
         btn = QPushButton(tr("MacroRecorder", "Stop recording"))
@@ -34,14 +33,14 @@ class LinuxRecorder(QWidget):
     def start(self):
         self.show()
 
-        center = QApplication.desktop().availableGeometry(self).center()
+        center = QApplication.primaryScreen().availableGeometry().center()
         self.move(round(center.x() - self.width() * 0.5), 0)
 
         args = [sys.executable]
         args += sys.argv
         args += ["--linux-recorder"]
 
-        self.process.start("pkexec", args, QProcess.Unbuffered | QProcess.ReadWrite)
+        self.process.start("pkexec", args, QIODeviceBase.OpenModeFlag.Unbuffered | QIODeviceBase.OpenModeFlag.ReadWrite)
 
     def on_stop(self):
         self.stop()

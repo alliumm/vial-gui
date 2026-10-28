@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-from PyQt5 import QtCore
-from PyQt5.QtCore import pyqtSignal, QObject
-from PyQt5.QtWidgets import QTabWidget, QWidget, QSizePolicy, QGridLayout, QVBoxLayout, QLabel, QHBoxLayout, \
+from PyQt6.QtCore import pyqtSignal, QObject, Qt
+from PyQt6.QtWidgets import QTabWidget, QWidget, QSizePolicy, QGridLayout, QVBoxLayout, QLabel, QHBoxLayout, \
     QPushButton, QSpinBox
 
 from vial.protocol.constants import VIAL_PROTOCOL_DYNAMIC
@@ -26,17 +25,17 @@ class TapDanceEntryUI(QObject):
         self.populate_container()
 
         w = QWidget()
-        w.setSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
+        w.setSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
         w.setLayout(self.container)
         l = QVBoxLayout()
         l.addStretch()
         l.addSpacing(10)
         l.addWidget(w)
-        l.setAlignment(w, QtCore.Qt.AlignHCenter)
+        l.setAlignment(w, Qt.AlignmentFlag.AlignHCenter)
         l.addSpacing(10)
         lbl = QLabel("Use <code>TD({})</code> to set up this action in the keymap.".format(self.idx))
         l.addWidget(lbl)
-        l.setAlignment(lbl, QtCore.Qt.AlignHCenter)
+        l.setAlignment(lbl, Qt.AlignmentFlag.AlignHCenter)
         l.addStretch()
         self.w2 = QWidget()
         self.w2.setLayout(l)

@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-from PyQt5 import QtCore
-from PyQt5.QtCore import pyqtSignal, QObject
-from PyQt5.QtWidgets import QWidget, QSizePolicy, QGridLayout, QVBoxLayout, QLabel
+from PyQt6.QtCore import pyqtSignal, QObject, Qt
+from PyQt6.QtWidgets import QWidget, QSizePolicy, QGridLayout, QVBoxLayout, QLabel
 
 from vial.protocol.constants import VIAL_PROTOCOL_DYNAMIC
 from vial.widgets.key_widget import KeyWidget
@@ -23,11 +22,11 @@ class ComboEntryUI(QObject):
         self.populate_container()
 
         w = QWidget()
-        w.setSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
+        w.setSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
         w.setLayout(self.container)
         l = QVBoxLayout()
         l.addWidget(w)
-        l.setAlignment(w, QtCore.Qt.AlignHCenter)
+        l.setAlignment(w, Qt.AlignmentFlag.AlignHCenter)
         self.w2 = QWidget()
         self.w2.setLayout(l)
 

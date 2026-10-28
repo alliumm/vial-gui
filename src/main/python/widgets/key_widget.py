@@ -1,4 +1,4 @@
-from PyQt5.QtCore import pyqtSignal
+from PyQt6.QtCore import pyqtSignal
 
 from vial.keycodes.keycodes import Keycode
 from vial.any_keycode_dialog import AnyKeycodeDialog

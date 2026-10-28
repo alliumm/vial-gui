@@ -1,3 +1,5 @@
+this fork exists mainly to allow me to run vial on chimera linux, which does not package qt5
+
 ### vial-gui
 
 # Docs and getting started
@@ -19,19 +21,17 @@ Visit https://get.vial.today/ to download a binary release of Vial.
 
 #### Development
 
-Python 3.6 is recommended (3.6 is the latest version that is officially supported by `fbs`).
-
 Install dependencies:
 
 ```
-python3 -m venv venv
+python3 -m venv --system-site-packages venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install .
 ```
 
 To launch the application afterwards:
 
 ```
 source venv/bin/activate
-fbs run
+vial
 ```

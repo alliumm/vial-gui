@@ -55,10 +55,10 @@ def hid_send(dev, msg, retries=1):
             if dev.write(b"\x00" + msg) != MSG_LEN + 1:
                 continue
 
-            data = bytes(dev.read(MSG_LEN, timeout_ms=500))
+            data = bytes(dev.read(MSG_LEN, timeout=500))
             if not data:
                 continue
-        except OSError:
+        except hid.HIDException:
             continue
         break
 
@@ -80,11 +80,9 @@ def is_rawhid(desc, quiet):
     if not sys.platform.startswith("linux"):
         return True
 
-    dev = hid.device()
-
     try:
-        dev.open_path(desc["path"])
-    except OSError as e:
+        dev = hid.Device(path=desc["path"])
+    except hid.HIDException as e:
         if not quiet:
             logging.warning("is_rawhid: {} does not match - open_path error {}".format(desc["path"], e))
         return False

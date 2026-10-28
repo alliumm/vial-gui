@@ -16,12 +16,11 @@ class VialDevice:
         self.via_stack = False
 
     def open(self, override_json=None):
-        self.dev = hid.device()
         for x in range(10):
             try:
-                self.dev.open_path(self.desc["path"])
+                self.dev = hid.Device(path=self.desc["path"])
                 return
-            except OSError:
+            except hid.HIDException:
                 time.sleep(1)
         raise RuntimeError("unable to open the device")
 

@@ -8,7 +8,7 @@ version = "0.7.5"
 dependencies = [
     "altgraph==0.17",
     "future==0.18.2",
-    "hidapi==0.15.0",
+    "hid>=1.0.8",
     "keyboard==0.13.5",
     "macholib==1.14",
     "pefile==2019.4.18",
